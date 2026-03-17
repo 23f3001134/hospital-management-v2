@@ -206,7 +206,6 @@ import api from "../services/api";
 
 const router = useRouter();
 
-// State
 const loading = ref(true);
 const patient = ref({
   name: "",
@@ -237,7 +236,6 @@ const syncForm = () => {
   };
 };
 
-// Load dashboard data
 const loadDashboard = async () => {
   try {
     const res = await api.get("/patient/dashboard");
@@ -255,7 +253,6 @@ const loadDashboard = async () => {
 
 onMounted(loadDashboard);
 
-// Cancel appointment
 const cancelAppointment = async (id) => {
   if (!confirm("Are you sure you want to cancel this appointment?")) return;
   cancelNotice.value = "";
@@ -309,7 +306,6 @@ const goToDepartment = (dept) => {
   router.push({ path: `/patient/departments/${encodeURIComponent(dept)}` });
 };
 
-// Logout
 const logout = () => {
   localStorage.removeItem("access_token");
   localStorage.removeItem("token");

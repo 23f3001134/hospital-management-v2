@@ -95,7 +95,7 @@ const login = async () => {
       password: password.value
     });
 
-    // ✅ Save JWT + role (FIXED KEY)
+    
     localStorage.setItem("access_token", res.data.access_token);
     localStorage.setItem("role", "admin");
 

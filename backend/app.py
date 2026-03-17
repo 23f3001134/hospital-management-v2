@@ -48,7 +48,6 @@ JWTManager(app)
 
 api = Api(app)
 
-# Ensure export directory exists
 export_dir = os.path.join(app.root_path, app.config["EXPORT_DIR"])
 os.makedirs(export_dir, exist_ok=True)
 
@@ -89,10 +88,8 @@ celery.conf.beat_schedule = {
     }
 }
 
-# BLUEPRINTS
 app.register_blueprint(auth_bp)
 
-# REST APIs
 api.add_resource(DoctorCRUDAPI, "/admin/doctors")
 api.add_resource(DoctorPasswordResetAPI, "/admin/doctors/<int:doctor_id>/reset-password")
 api.add_resource(DoctorDetailAPI, "/admin/doctors/<int:doctor_id>")
@@ -114,8 +111,8 @@ api.add_resource(AdminPatientDetailAPI, "/admin/patients/<int:patient_id>")
 api.add_resource(AdminPatientRecordsAPI, "/admin/patients/<int:patient_id>/records")
 api.add_resource(AdminPatientBlacklistAPI, "/admin/patients/<int:patient_id>/blacklist")
 
-# Register Celery tasks
-import controllers.task  # noqa: E402,F401
+
+import controllers.task 
 
 if __name__ == "__main__":
     with app.app_context():

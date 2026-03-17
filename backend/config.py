@@ -11,15 +11,12 @@ class Config:
     JWT_HEADER_NAME = "Authorization"
     JWT_HEADER_TYPE = "Bearer"
 
-    # Disable CSRF for header tokens
     JWT_COOKIE_CSRF_PROTECT = False
 
-    # Cache
     CACHE_TYPE = os.getenv("CACHE_TYPE", "SimpleCache")
     CACHE_DEFAULT_TIMEOUT = int(os.getenv("CACHE_DEFAULT_TIMEOUT", "60"))
     CACHE_KEY_PREFIX = os.getenv("CACHE_KEY_PREFIX", "mad2:")
 
-    # Celery
     CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL", "redis://localhost:6379/0")
     CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND", "redis://localhost:6379/0")
     CELERY_TIMEZONE = os.getenv("CELERY_TIMEZONE", "UTC")
@@ -29,7 +26,6 @@ class Config:
     MONTHLY_REPORT_HOUR = int(os.getenv("MONTHLY_REPORT_HOUR", "9"))
     MONTHLY_REPORT_MINUTE = int(os.getenv("MONTHLY_REPORT_MINUTE", "0"))
 
-    # Notifications
     DEFAULT_GCHAT_WEBHOOK_URL = os.getenv("DEFAULT_GCHAT_WEBHOOK_URL", "")
     SMTP_HOST = os.getenv("SMTP_HOST", "")
     SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
@@ -38,5 +34,4 @@ class Config:
     SMTP_USE_TLS = os.getenv("SMTP_USE_TLS", "true").lower() == "true"
     SMTP_FROM_EMAIL = os.getenv("SMTP_FROM_EMAIL", "no-reply@mad2.local")
 
-    # Exports
     EXPORT_DIR = os.getenv("EXPORT_DIR", "instance/exports")

@@ -202,14 +202,13 @@ import api from "../services/api"
 
 const router = useRouter()
 
-// STATE
 const doctors = ref([])
 const patients = ref([])
 const appointments = ref([])
 const search = ref("")
 const actionError = ref("")
 
-// FETCH DASHBOARD DATA
+
 const fetchAll = async () => {
   try {
     const res = await api.get("/admin/dashboard", {

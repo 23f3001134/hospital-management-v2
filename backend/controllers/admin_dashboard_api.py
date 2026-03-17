@@ -20,7 +20,6 @@ class AdminDashboardAPI(Resource):
         cache_key = key_admin_dashboard(search)
 
         def build():
-            # ---------------- DOCTORS ----------------
             doctors_query = Doctor.query
             if search:
                 doctors_query = doctors_query.filter(
@@ -64,7 +63,6 @@ class AdminDashboardAPI(Resource):
                 for p in patients
             ]
 
-            # ---------------- APPOINTMENTS ----------------
             appointments = (
                 db.session.query(Appointment, Patient, Doctor)
                 .join(Patient, Appointment.patient_id == Patient.id)
@@ -87,7 +85,6 @@ class AdminDashboardAPI(Resource):
                 for a, p, d in appointments
             ]
 
-            # ---------------- FINAL RESPONSE ----------------
             return {
                 "doctors": doctors_data,
                 "patients": patients_data,

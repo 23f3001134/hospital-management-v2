@@ -12,10 +12,6 @@ from controllers.cache_utils import (
     key_patient_department_doctors
 )
 
-
-# =========================
-# PATIENT PROFILE CRUD
-# =========================
 class PatientProfileAPI(Resource):
 
     @jwt_required()
@@ -64,10 +60,6 @@ class PatientProfileAPI(Resource):
         )
         return {"message": "Profile updated successfully"}, 200
 
-
-# =========================
-# ADMIN → DOCTOR CRUD
-# =========================
 
 class DoctorCRUDAPI(Resource):
 
@@ -123,10 +115,6 @@ class DoctorCRUDAPI(Resource):
         )
         return {"message": "Doctor added successfully"}, 201
 
-
-# =========================
-# ADMIN → DOCTOR PASSWORD RESET
-# =========================
 class DoctorPasswordResetAPI(Resource):
 
     @jwt_required()
@@ -145,9 +133,6 @@ class DoctorPasswordResetAPI(Resource):
         return {"message": "Doctor password reset to doctor123"}, 200
 
 
-# =========================
-# ADMIN -> DOCTOR UPDATE / DELETE
-# =========================
 class DoctorDetailAPI(Resource):
 
     @jwt_required()
@@ -201,9 +186,6 @@ class DoctorDetailAPI(Resource):
         return {"message": "Doctor deleted successfully"}, 200
 
 
-# =========================
-# ADMIN -> DOCTOR BLACKLIST
-# =========================
 class DoctorBlacklistAPI(Resource):
 
     @jwt_required()
