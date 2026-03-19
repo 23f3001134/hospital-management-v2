@@ -190,7 +190,7 @@
             </div>
             <p v-if="cancelNotice" class="alert success">{{ cancelNotice }}</p>
             <p class="muted-note">
-              Please arrive at least 15 minutes early. You can cancel or reschedule from here.
+              Please arrive at least 15 minutes early. You can cancel appointments from here.
             </p>
           </div>
         </section>
@@ -258,9 +258,8 @@ const cancelAppointment = async (id) => {
   cancelNotice.value = "";
   try {
     await api.put(`/appointments/${id}/cancel`);
-    await api.delete(`/appointments/${id}/history`);
     appointments.value = appointments.value.filter((item) => item.id !== id);
-    cancelNotice.value = "Appointment canceled and history removed.";
+    cancelNotice.value = "Appointment canceled.";
   } catch (err) {
     error.value =
       err.response?.data?.message ||

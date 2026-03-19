@@ -44,7 +44,7 @@
                   <button class="btn btn-sm btn-success" @click="$emit('mark-completed', a)">
                     Mark done
                   </button>
-                  <button class="btn btn-sm btn-outline-danger" @click="$emit('cancel', a)">
+                  <button class="btn btn-sm btn-outline-danger" @click="$emit('cancel-appointment', a)">
                     Cancel
                   </button>
                 </div>
@@ -62,7 +62,7 @@ defineProps({
   appointments: { type: Array, default: () => [] }
 })
 
-defineEmits(["mark-completed", "cancel", "update-history"])
+defineEmits(["mark-completed", "cancel", "cancel-appointment", "update-history"])
 
 const statusClass = status => {
   const base = "badge"

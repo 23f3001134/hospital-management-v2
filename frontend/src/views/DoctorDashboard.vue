@@ -64,7 +64,7 @@
         <DoctorAppointmentsCard
           :appointments="appointments"
           @mark-completed="markCompleteFromCard"
-          @cancel="cancelFromCard"
+          @cancel-appointment="cancelFromCard"
           @update-history="updateHistoryFromCard"
         />
           </div>
@@ -170,6 +170,7 @@ const markCompleteFromCard = appointment => {
 
 const cancelFromCard = appointment => {
   if (!appointment?.id) return
+  if (!confirm("Are you sure you want to cancel this appointment?")) return
   cancelAppointment(appointment.id)
 }
 

@@ -100,7 +100,7 @@
           <article v-for="doc in doctors" :key="doc.id" class="doctor-card">
             <div class="doctor-head">
               <div>
-                <div class="doctor-name">Dr. {{ doc.name }}</div>
+                <div class="doctor-name"> {{ doc.name }}</div>
                 <div class="muted-text">{{ doc.department }}</div>
                 <div class="muted-text">{{ doc.experience }} yrs experience</div>
               </div>
@@ -137,7 +137,7 @@
                 </div>
 
                 <div v-if="booking.doctor" class="booking-box">
-                  <div class="row-title">Book appointment with Dr. {{ booking.doctor.name }}</div>
+                  <div class="row-title">Book appointment with  {{ booking.doctor.name }}</div>
                   <div class="booking-grid">
                     <div class="field">
                       <label>Date</label>
