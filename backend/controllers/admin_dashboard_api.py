@@ -41,7 +41,6 @@ class AdminDashboardAPI(Resource):
                 for d in doctors
             ]
 
-            # ---------------- PATIENTS ----------------
             patients_query = Patient.query
             if search:
                 patients_query = patients_query.filter(

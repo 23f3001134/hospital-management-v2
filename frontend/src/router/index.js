@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-// Views
 import Home from "../views/Home.vue";
 import PatientRegister from "../views/PatientRegister.vue";
 import PatientLogin from "../views/PatientLogin.vue";
@@ -18,7 +17,6 @@ import ViewDetails from "../views/ViewDetails.vue";
 
 
 const routes = [
-  // Public
   {
     path: "/", 
     name: "Home",
@@ -45,7 +43,6 @@ const routes = [
     component: AdminLogin
   },
 
-  // Dashboards
   {
     path: "/patient/dashboard",
     name: "PatientDashboard",

@@ -89,26 +89,27 @@ const login = async () => {
   error.value = "";
   loading.value = true;
 
+  const payload = {
+    username: username.value.trim().toLowerCase(),
+    password: password.value.trim()
+  };
+
   try {
-    const res = await api.post("/auth/admin/login", {
-      username: username.value,
-      password: password.value
-    });
+    const res = await api.post("/auth/admin/login", payload);
 
-    
-    localStorage.setItem("access_token", res.data.access_token);
-    localStorage.setItem("role", "admin");
-
-    router.push("/admin/dashboard");
-
+    if (res?.data?.access_token) {
+      localStorage.setItem("access_token", res.data.access_token);
+      localStorage.setItem("role", "admin");
+      await router.push("/admin/dashboard");
+    } else {
+      throw new Error("No token returned");
+    }
   } catch (err) {
-    error.value =
-      err.response?.data?.message || "Invalid admin credentials";
+    error.value = err.response?.data?.message || "Invalid admin credentials";
   } finally {
     loading.value = false;
   }
 };
-
 </script>
 
 <style scoped>
