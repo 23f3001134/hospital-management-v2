@@ -7,3 +7,4 @@ werkzeug
 celery
 flask-caching
 requests
+gunicorn
