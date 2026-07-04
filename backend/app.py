@@ -87,6 +87,9 @@ celery.conf.beat_schedule = {
         )
     }
 }
+@app.route('/')
+def home():
+    return "Welcome to the API"
 
 app.register_blueprint(auth_bp)
 
