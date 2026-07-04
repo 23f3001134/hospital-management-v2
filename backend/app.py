@@ -40,7 +40,7 @@ from controllers.appointment_api import AppointmentAPI, AppointmentStatusAPI, Ap
 app = Flask(__name__)
 app.config.from_object(Config)
 
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "https://hospital-mgt-v2.vercel.app"}}, supports_credentials=True)
 
 db.init_app(app)
 cache.init_app(app)
